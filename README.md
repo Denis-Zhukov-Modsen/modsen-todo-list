@@ -1,9 +1,9 @@
-#Modsen Todo list
+# Modsen Todo list
 
-##Deploy:
+## Deploy:
 - [Netlify](https://bucolic-taiyaki-fe173d.netlify.app/)
 
-##Run local:
+## Run local:
 ```bash
   pnpm i
   pnpm dev
