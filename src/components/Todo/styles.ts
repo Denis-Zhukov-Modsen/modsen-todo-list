@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -8,16 +8,28 @@ export const Wrapper = styled.div`
 `;
 
 export const Task = styled.div`
-    width: 100%;
+  width: 100%;
+  word-break: break-word;
 `;
 
 export const EditButton = styled.button`
-  width: 34px;
-  height: 39px;
-  outline: none;
-  border: none;
-  background: transparent;
-  cursor: pointer;
+  ${({theme}) => css`
+    width: 34px;
+    height: 39px;
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    svg {
+      width: 34px;
+      height: 39px;
+
+      polygon, path {
+        stroke: ${theme.text.text};
+      }
+    }
+  `}
 `;
 
 export const DeleteButton = styled.button`

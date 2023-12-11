@@ -1,5 +1,5 @@
-import styled, {css} from "styled-components";
 import {Link} from "react-router-dom";
+import styled, {css} from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -9,11 +9,11 @@ export const Wrapper = styled.div`
 
 export const StyledLink = styled(Link)<{ $active: boolean }>`
   ${({theme, $active}) => css`
-    color: ${theme.colors.white};
+    color: ${theme.text.button};
     font-size: ${theme.fontSizes.xl}px;
 
     text-decoration: none;
-    border-bottom: ${$active ? `2px solid ${theme.colors.white}` : 'none'};
+    border-bottom: ${$active ? `2px solid ${theme.border.link}` : 'none'};
     outline: none;
   `}
 `;

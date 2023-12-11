@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {Theme} from "@/typing/theme";
+
+import {Theme} from "@/types/theme";
 
 export interface ThemeStore {
     theme: Theme

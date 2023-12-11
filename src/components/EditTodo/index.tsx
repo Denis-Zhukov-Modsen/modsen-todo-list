@@ -1,32 +1,29 @@
-import {useCallback, useId, useState} from "react";
+import {useId, useState} from "react";
+
 import {StyledInput, StyledLabel, Wrapper} from "./styles.ts";
+import {EditTodoProps} from "./types.ts";
+
 import {Button} from "@/components/Button";
 import {useActions} from "@/hooks/useActions.ts";
-import {Todo} from "@/typing/todo.ts";
 
-interface Props {
-    todo: Todo
-    onClose: () => void
-}
-
-export const EditTodo = ({todo: {id, text}, onClose}: Props) => {
+export const EditTodo = ({todo: {id, text}, onClose}: EditTodoProps) => {
     const idLabel = useId();
     const {updateItem} = useActions();
 
     const [value, setValue] = useState(text);
 
-    const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value)
-    }, []);
+    };
 
-    const handleClick = useCallback(() => {
+    const handleClick = () => {
         updateItem({id, text: value})
         onClose();
-    }, [id, value, onClose]);
+    };
 
     return <Wrapper>
-        <StyledLabel htmlFor={idLabel}>Название таски: </StyledLabel>
+        <StyledLabel htmlFor={idLabel}>Task: </StyledLabel>
         <StyledInput id={idLabel} value={value} onChange={handleChange}/>
-        <Button variant="second" onClick={handleClick}>Сохранить</Button>
+        <Button variant="second" onClick={handleClick}>Save</Button>
     </Wrapper>
 }

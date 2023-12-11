@@ -1,11 +1,7 @@
-import {SelectHTMLAttributes} from "react";
+import type {SelectProps} from "./types.ts";
 
-interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
-    items: { value: string, text: string }[]
-    selected?: string
-}
 
-export const Select = ({items, selected, ...props}: Props) => {
+export const Select = ({items, selected, ...props}: SelectProps) => {
     return <select {...props} defaultValue={selected}>
         {items.map(({value, text}) => (
             <option key={value} value={value}>{text}</option>

@@ -1,8 +1,9 @@
-import {useMemo} from 'react';
 import {bindActionCreators} from '@reduxjs/toolkit';
-import {todoActions} from '@/store/slices/todo.slice';
-import {themeActions} from '@/store/slices/theme.slice';
+import {useMemo} from 'react';
+
 import {useAppDispatch} from "@/hooks/redux-hooks";
+import {themeActions} from '@/store/slices/theme.slice';
+import {todoActions} from '@/store/slices/todo.slice';
 
 
 const actions = {

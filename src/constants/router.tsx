@@ -1,8 +1,9 @@
 import {createBrowserRouter, Outlet} from "react-router-dom";
+
+import {Header} from "@/components/Header";
 import {Urls} from "@/constants/urls.ts";
 import {Main} from "@/pages/Main";
 import {Settings} from "@/pages/Settings";
-import {Header} from "@/components/Header";
 import {Wrapper} from "@/styles.ts";
 
 export const router = createBrowserRouter([

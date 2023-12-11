@@ -8,5 +8,5 @@ export const Wrapper = styled.div`
   justify-content: center;
   gap: 50px;
   width: min(900px, calc(100vw - 50px));
-  padding: 25px;
+  padding: 25px 0 0;
 `;

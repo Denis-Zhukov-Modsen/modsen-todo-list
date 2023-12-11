@@ -1,5 +1,7 @@
 import styled, {css} from "styled-components";
-import {Variant} from "./typing.ts";
+
+import type {Variant} from "./types";
+
 import {colors} from "@/constants/colors.ts";
 
 const buttonColors: Record<Variant, string> = {
@@ -14,8 +16,13 @@ export const StyledButton = styled.button<{ $variant: Variant }>`
     border-radius: 10px;
     padding: 15px 20px;
     cursor: pointer;
-    color: ${theme.colors.white};
+    color: ${theme.text.button};
     font-size: ${theme.fontSizes.sm}px;
     background: ${buttonColors[$variant]};
+
+    &:disabled {
+      cursor: not-allowed;
+      background: ${theme.bg.header};
+    }
   `}
 `;

@@ -1,11 +1,7 @@
-import {StyledButton} from "@/components/Button/styles.ts";
-import {ButtonHTMLAttributes} from "react";
-import {Variant} from "./typing.ts";
+import {StyledButton} from "./styles.ts";
+import {ButtonProps} from "./types";
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: Variant
-}
 
-export const Button = ({children, variant = 'primary', ...props}: Props) => {
+export const Button = ({children, variant = 'primary', ...props}: ButtonProps) => {
     return <StyledButton{...props} $variant={variant}>{children}</StyledButton>
 }

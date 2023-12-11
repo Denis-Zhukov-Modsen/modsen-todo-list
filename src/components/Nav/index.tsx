@@ -1,11 +1,14 @@
-import {navLinks} from "@/constants/nav-links.ts";
-import {StyledLink, Wrapper} from "./styles.ts";
 import {useLocation} from "react-router-dom";
+
+import {StyledLink, Wrapper} from "./styles.ts";
+
+import {navLinks} from "@/constants/nav-links.ts";
+import {useLinks} from "@/hooks/useLinks.ts";
+
 
 export const Nav = () => {
     const {pathname} = useLocation();
-
-    const names = Object.keys(navLinks) as (keyof typeof navLinks)[];
+    const names = useLinks();
 
     return <Wrapper>
         {names.map(name => (

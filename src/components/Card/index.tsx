@@ -1,10 +1,10 @@
-import Avatar from '@/assets/images/avatar.png';
+import {Wrapper} from "./styles.ts";
+import type {CardProps} from "./types.ts";
 
-import {Wrapper} from "@/components/Card/styles.ts";
 
-export const Card = () => {
+export const Card = ({avatar, login}: CardProps) => {
     return <Wrapper>
-        <div>Login: IvanovIvan</div>
-        <img src={Avatar} alt="avatar"/>
+        <div>Login: {login}</div>
+        <img src={avatar} alt="avatar"/>
     </Wrapper>
 }

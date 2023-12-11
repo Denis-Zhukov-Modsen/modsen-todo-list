@@ -5,15 +5,17 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: ${theme.colors.blue};
-    min-height: 130px;
-    padding: 43px 47px;
+    background: ${theme.bg.header};
+    position: sticky;
+    top: 0;
+    min-height: 20px;
+    padding: 20px 45px;
   `}
 `;
 
 export const Logo = styled.div`
   ${({theme}) => css`
-    color: ${theme.colors.white};
+    color: ${theme.text.button};
     font-size: ${theme.fontSizes.xl}px;
   `}
 `;

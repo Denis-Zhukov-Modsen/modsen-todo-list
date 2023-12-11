@@ -1,10 +1,13 @@
 import styled, {css} from "styled-components";
-import {Theme} from "@/typing/theme.ts";
 
-export const Wrapper = styled.div<{ $theme: Theme }>`
-  ${({$theme, theme})=>css`
+export const Wrapper = styled.div`
+  ${({theme}) => css`
     width: 100%;
-    color: ${$theme === 'dark' ? theme.colors.white : theme.colors.black};
+    color: ${theme.text.text};
+
+    h2 {
+      text-align: center;
+    }
   `}
 `;
 
@@ -19,6 +22,6 @@ export const Line = styled.div`
   ${({theme}) => css`
     width: 100%;
     height: 1px;
-    background: ${theme.colors.gray};
+    background: ${theme.border.input};
   `}
 `;

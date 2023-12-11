@@ -1,11 +1,12 @@
 import styled, {css} from "styled-components";
+
 import {Select} from "@/components/Select";
 
 export const StyledSelect = styled(Select)`
     ${({theme})=>css`
-      padding: 18px 21px;
+      padding: 10px;
       outline: none;
-      border: 1px solid ${theme.colors.borderGray};
+      border: 1px solid ${theme.border.select};
       font-size: ${theme.fontSizes.xs}px;
       border-radius: 10px;
     `}

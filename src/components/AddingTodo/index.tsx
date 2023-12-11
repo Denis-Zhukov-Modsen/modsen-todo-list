@@ -1,26 +1,33 @@
-import {Input} from "@/components/Input";
-import {Button} from "@/components/Button";
-import {useCallback, useId, useState} from "react";
-import {useActions} from "@/hooks/useActions.ts";
-import {StyledLabel, Wrapper} from "./styles.ts";
+import {useId, useState} from "react";
+
+import {StyledButton, StyledInput, StyledLabel, Wrapper} from "./styles.ts";
+
+import {useActions} from "@/hooks/useActions";
 
 export const AddingTodo = () => {
+    const id = useId();
     const [task, setTask] = useState('');
-    const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-        setTask(e.target.value);
-    }, [])
+    const [quake, setQuake] = useState(false);
 
     const {addTodo} = useActions();
 
-    const handleAdd = useCallback(() => {
-        addTodo(task);
-    }, [task]);
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTask(e.target.value);
+    }
 
-    const id = useId();
+    const handleAdd = () => {
+        if (!task) {
+            setTimeout(() => setQuake(false), 500);
+            return setQuake(true);
+        }
+
+        addTodo(task);
+        setTask('');
+    };
 
     return <Wrapper>
         <StyledLabel htmlFor={id}>Add a new task</StyledLabel>
-        <Input id={id} value={task} onChange={handleChange}/>
-        <Button onClick={handleAdd}>Add todo</Button>
+        <StyledInput id={id} value={task} onChange={handleChange} $quake={quake} placeholder="Cooking..."/>
+        <StyledButton onClick={handleAdd}>Add todo</StyledButton>
     </Wrapper>
 }

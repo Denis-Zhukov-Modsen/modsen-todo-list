@@ -1,52 +1,65 @@
+import {useState} from "react";
+
+import {DeleteButton, EditButton, Task, Wrapper} from "./styles";
+import type {TodoProps} from "./types.ts";
+
+import DeleteIcon from '@/assets/images/delete.svg?react';
+import EditIcon from '@/assets/images/edit.svg?react';
 import {Checkbox} from "@/components/Checkbox";
-import {useActions} from "@/hooks/useActions";
-import {useCallback, useState} from "react";
-import {DeleteButton, EditButton, Task, Wrapper} from "@/components/Todo/styles";
-import DeleteIcon from '@/assets/images/delete.svg';
-import EditIcon from '@/assets/images/edit.svg';
-import {Modal} from "@/components/Modal";
+import {Confirm} from "@/components/Confirm";
 import {EditTodo} from "@/components/EditTodo";
+import {Modal} from "@/components/Modal";
+import {useActions} from "@/hooks/useActions";
 
-interface Props {
-    id: number,
-    selected: boolean
-    text: string
-}
 
-export const Todo = ({id, selected, text}: Props) => {
+
+export const Todo = ({id, selected, text}: TodoProps) => {
     const {toggleChecked, removeTodo} = useActions();
 
-    const handleToggle = useCallback(() => {
+    const handleToggle = () => {
         toggleChecked(id)
-    }, [id]);
-
-
-    const handleDelete = useCallback(() => {
-        removeTodo(id);
-    }, [id]);
+    };
 
     const [edit, setEdit] = useState(false);
-    const handleClose = useCallback(() => {
+    const handleCloseEdit = () => {
         setEdit(false);
-    }, [])
+    }
 
-    const handleEdit = useCallback(() => {
-        setEdit(true);
-    }, [id]);
+    const [confirm, setConfirm] = useState(false);
+    const handleCloseConfirm = () => {
+        setConfirm(false);
+    }
+
+    const handleDelete = () => {
+        removeTodo(id);
+    };
 
     return <Wrapper>
         <Checkbox checked={selected} onClick={handleToggle}/>
 
         <Task>{text}</Task>
 
-        <EditButton onClick={handleEdit}>
-            <img src={EditIcon} alt="Edit"/>
+        <EditButton onClick={() => setEdit(true)}>
+            <EditIcon/>
         </EditButton>
 
-        <DeleteButton onClick={handleDelete}>
-            <img src={DeleteIcon} alt="Delete"/>
+        <DeleteButton onClick={() => setConfirm(true)}>
+            <DeleteIcon/>
         </DeleteButton>
 
-        <Modal open={edit} onClose={handleClose}><EditTodo onClose={handleClose} todo={{id, text, selected}}/></Modal>
+        <Modal open={edit} onClose={handleCloseEdit}>
+            <EditTodo
+                onClose={handleCloseEdit}
+                todo={{id, text, selected}}
+            />
+        </Modal>
+
+        <Modal open={confirm} onClose={handleCloseConfirm}>
+            <Confirm
+                action={handleDelete}
+                onClose={handleCloseConfirm}
+                text="Delete?"
+            />
+        </Modal>
     </Wrapper>
 }

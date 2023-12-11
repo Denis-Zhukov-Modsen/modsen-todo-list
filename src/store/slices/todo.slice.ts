@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {Todo} from "@/typing/todo.ts";
+
+import {Todo} from "@/types/todo.ts";
 
 export interface TodoStore {
     items: Todo[]

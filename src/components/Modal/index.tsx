@@ -1,16 +1,13 @@
-import React, {useEffect, useRef} from "react";
+import {useEffect, useRef} from "react";
 import {createPortal} from "react-dom";
+
 import {Close, ModalBody, Wrapper} from "@/components/Modal/styles.ts";
+import {ModalProps} from "@/components/Modal/types.ts";
 
 const modalElement = document.getElementById("modal")!;
 
-interface Props {
-    open: boolean,
-    onClose: () => void,
-    children: React.ReactNode
-}
 
-export const Modal: React.FC<Props> = ({open, onClose, children}) => {
+export const Modal = ({open, onClose, children}: ModalProps) => {
     const element = useRef<HTMLDivElement>(document.createElement("div"));
 
     useEffect(() => {

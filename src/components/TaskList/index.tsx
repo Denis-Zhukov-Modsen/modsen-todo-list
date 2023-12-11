@@ -1,13 +1,13 @@
 import React from 'react';
-import {useAppSelector} from "@/hooks/redux-hooks.ts";
-import {Todo} from "@/components/Todo";
+
 import {Line, StyledList, Wrapper} from "@/components/TaskList/styles.ts";
+import {Todo} from "@/components/Todo";
+import {useAppSelector} from "@/hooks/redux-hooks.ts";
 
 export const TaskList = () => {
-    const [todos, theme] = useAppSelector(state => [state.todos.items, state.theme.theme]);
+    const todos = useAppSelector(state => state.todos.items);
 
-
-    return <Wrapper $theme={theme}>
+    return <Wrapper>
         <h2>Task list</h2>
         <StyledList>
             <Line/>
