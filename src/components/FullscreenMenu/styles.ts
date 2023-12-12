@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
     align-items: center;
     flex-direction: column;
     position: fixed;
-    z-index: 99999999;
     left: 0;
     top: 80px;
     width: 100vw;
