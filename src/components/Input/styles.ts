@@ -14,5 +14,10 @@ export const StyledInput = styled.input`
     &:focus {
       border-bottom: 4px solid ${theme.border.focused};
     }
+
+    &::-webkit-input-placeholder {
+      color: ${theme.text.text};
+      opacity: 0.5;
+    }
   `}
 `;

@@ -12,6 +12,7 @@ export const Wrapper = styled.div<{ $open: boolean }>`
     position: relative;
     cursor: pointer;
     user-select: none;
+    z-index: 0;
 
     &::after {
       display: block;
