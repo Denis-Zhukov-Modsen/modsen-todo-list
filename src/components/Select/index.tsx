@@ -1,4 +1,4 @@
-import {ChangeEvent, useState} from "react";
+import {useState} from "react";
 
 import {Input, Item, Items, Wrapper} from "@/components/Select/styles.ts";
 import {SelectProps} from "@/components/Select/types.ts";
