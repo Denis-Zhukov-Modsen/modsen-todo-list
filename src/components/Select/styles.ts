@@ -10,6 +10,8 @@ export const Wrapper = styled.div<{ $open: boolean }>`
       border-radius: 10px 10px 0 0;
     `}
     position: relative;
+    cursor: pointer;
+    user-select: none;
 
     &::after {
       display: block;
