@@ -23,6 +23,5 @@ export const StyledLabel = styled.label`
 `;
 
 export const StyledInput = styled(Input)`
-  border: none;
   width: calc(100% - 50px);
 `;
