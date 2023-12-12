@@ -17,7 +17,6 @@ export const StyledInput = styled.input`
 
     &::-webkit-input-placeholder {
       color: ${theme.text.text};
-      opacity: 0.5;
     }
   `}
 `;
